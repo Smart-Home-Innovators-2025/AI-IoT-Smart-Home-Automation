@@ -1,5 +1,4 @@
 # gesture_to_blynk.py
-#
 # This script controls an LED connected to an ESP32 via Blynk Cloud.
 # - Shows webcam feed with hand tracking.
 # - Counts fingers:
@@ -27,13 +26,22 @@ tip_ids = [4, 8, 12, 16, 20]
 
 # --- BLYNK COMMUNICATION ---
 def send_to_blynk(command):
-    """Sends the given command string to Blynk V9."""
+    """Sends the given command string to Blynk V9 with error handling."""
     try:
         url = f"{BLYNK_API_URL}&{BLYNK_VIRTUAL_PIN}={command}"
-        response = requests.get(url)
-        print(f"Sent '{command}' to Blynk. Server response: {response.status_code}")
+        response = requests.get(url, timeout=5)
+        if response.status_code == 200:
+            print(f"✓ Sent '{command}' to Blynk.")
+            return True
+        else:
+            print(f"⚠️  Blynk response {response.status_code} for '{command}'")
+            return False
+    except requests.exceptions.Timeout:
+        print(f"⚠️  Timeout sending '{command}' to Blynk")
+        return False
     except requests.exceptions.RequestException as e:
-        print(f"Error sending to Blynk: {e}")
+        print(f"⚠️  Error sending to Blynk: {e}")
+        return False
 
 # --- MAIN GESTURE DETECTION LOOP ---
 cap = cv2.VideoCapture(0)  # 0 is the default webcam
@@ -104,9 +112,9 @@ while cap.isOpened():
     # AND at least 1 second has passed (prevents flickering)
     current_time = time.time()
     if command and command != last_command and (current_time - last_sent_time > 1):
-        send_to_blynk(command)
-        last_command = command
-        last_sent_time = current_time
+        if send_to_blynk(command):
+            last_command = command
+            last_sent_time = current_time
     elif not command:
         last_command = "" # Reset if no valid gesture
 
@@ -116,7 +124,8 @@ while cap.isOpened():
 
     cv2.imshow("Gesture Control - (Press 'q' to quit)", img)
     
-    if cv2.waitKey(5) & 0xFF == 27:
+    key = cv2.waitKey(5) & 0xFF
+    if key == ord('q') or key == 27:  # 'q' or ESC to quit
         break
 
 # Cleanup
