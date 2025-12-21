@@ -3,17 +3,17 @@
 // (CORRECTED FOR BLYNK AI + LCD + ALL FIXES)
 // ==========================================
 // --- BLYNK CONFIGURATION ---
-#define BLYNK_TEMPLATE_ID "TMPL3PpUyWLwI"
-#define BLYNK_TEMPLATE_NAME "Home Automation Project"
-#define BLYNK_AUTH_TOKEN "-OEwcoIVmfUPMEJ1O05Mbsvd28ONR4aj"
+#define BLYNK_TEMPLATE_ID "{BLYNK_TEMPLATE_ID}"
+#define BLYNK_TEMPLATE_NAME "{BLYNK_TEMPLATE_NAME}"
+#define BLYNK_AUTH_TOKEN "{BLYNK_AUTH_TOKEN}"
 #define BLYNK_PRINT Serial
 // --- LIBRARIES ---
 #include <WiFi.h>
 #include <BlynkSimpleEsp32.h>
 #include <LiquidCrystal_I2C.h> // LCD Library
 // --- WIFI CREDENTIALS ---
-char wifi_ssid[] = "ARJUN";
-char wifi_pass[] = "arjun123";
+char wifi_ssid[] = "{WIFI_NAME}";
+char wifi_pass[] = "{WIFI_PASSWORD}";
 // --- HARDWARE PINS ---
 const int LED_PIN = 23; // Gesture LED
 const int MQ135_PIN = 34; // Gas Sensor (Analog)
