@@ -9,7 +9,7 @@ import json
 from ai_engine import ai_master
 
 # --- BLYNK CONFIGURATION ---
-BLYNK_AUTH_TOKEN = "-OEwcoIVmfUPMEJ1O05Mbsvd28ONR4aj" # Paste your token here
+BLYNK_AUTH_TOKEN = "{BLYNK_AUTH_TOKEN}" # Paste your token here
 BLYNK_GET_URL = f"https://blynk.cloud/external/api/get?token={BLYNK_AUTH_TOKEN}"
 BLYNK_UPDATE_URL = f"https://blynk.cloud/external/api/update?token={BLYNK_AUTH_TOKEN}"
 
