@@ -6,10 +6,10 @@ This project is an **AI-Integrated Smart Home Automation System** designed to pr
 All data is visualized locally on a **16x2 LCD** and remotely via the **Blynk IoT Cloud**, offering detailed analytics graphs (Power vs. Time, Gas vs. Time).
 
 ## 👥 Team Members
-* **Atiksh Singh** - Computer Science & Engineering
-* **Arjun Singh** - Computer Science & Engineering
-* **Manish Nehra** - Computer Science & Engineering
-* **Rishabh Jain** - Computer Science & Engineering
+* **Atiksh Singh** - Computer Science & Engineering.
+* **Arjun Singh** - Computer Science & Engineering.
+* **Manish Nehra** - Computer Science & Engineering.
+* **Rishabh Jain** - Computer Science & Engineering.
 
 ---
 
