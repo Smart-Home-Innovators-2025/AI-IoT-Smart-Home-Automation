@@ -12,7 +12,7 @@ import requests
 import time
 
 # --- BLYNK CONFIGURATION ---
-BLYNK_AUTH_TOKEN = "-OEwcoIVmfUPMEJ1O05Mbsvd28ONR4aj"  # Paste your token here
+BLYNK_AUTH_TOKEN = "{BLYNK_AUTH_TOKEN}"  # Paste your token here
 BLYNK_VIRTUAL_PIN = "v9"
 BLYNK_API_URL = f"https://blynk.cloud/external/api/update?token={BLYNK_AUTH_TOKEN}"
 
